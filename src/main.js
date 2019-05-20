@@ -2,11 +2,14 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import App from './App'
-import router from './router'
+import {router} from './router'
 import axios from 'vue-axios'
+import BootstrapVue from 'bootstrap-vue'
+import NavBar from "@/components/NavBar";
 
-Vue.config.productionTip = false
-
+Vue.config.productionTip = false;
+Vue.use(BootstrapVue);
+Vue.component('NavBar', NavBar);
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

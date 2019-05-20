@@ -28,17 +28,17 @@
             }
         },
         created () {
-            this.checkCurrentLogin()
+           // this.checkCurrentLogin()
         },
         updated () {
-            this.checkCurrentLogin()
+           // this.checkCurrentLogin()
         },
         methods: {
-            checkCurrentLogin () {
-                if (localStorage.token) {
-                    this.$router.replace(this.$route.query.redirect || '/authors')
-                }
-            },
+            // checkCurrentLogin () {
+            //     if (localStorage.token) {
+            //         this.$router.replace(this.$route.query.redirect || '/')
+            //     }
+            // },
             login() {
                 if(this.input.username != "" && this.input.password != "") {
                     axios.post('http://localhost:8080/Chatturbait/resources/authentication',
@@ -46,7 +46,7 @@
                         {name: this.input.username, password: this.input.password, authCode: this.input.authCode}),
                         { headers: {'Content-Type' : 'application/x-www-form-urlencoded'}}
                         )
-                        .then((response) => {console.log(JSON.stringify(response)); this.loginSuccessful(response)})
+                        .then((response) => { this.loginSuccessful(response)})
                         .catch(() => this.loginFailed())
                 } else {
                     console.log("A username and password must be present");
@@ -54,20 +54,20 @@
             },
             loginSuccessful (response) {
                 console.log("loginsucces" + JSON.stringify(response));
-                if (!response.data.token) {
-                    this.loginFailed()
+                if (!response.data) {
+                    this.loginFailed();
                     return
                 }
 
-                localStorage.token = response.data.token
-                this.error = false
-
-                this.$router.replace(this.$route.query.redirect || '/')
+                localStorage.token = response.data;
+                this.error = false;
+                this.$router.push('/Home');
+                //this.$router.replace(this.$route.query.redirect || '/Home');
             },
 
             loginFailed () {
-                this.error = 'Login failed!'
-                delete localStorage.token
+                this.error = 'Login failed!';
+                delete localStorage.token;
             }
         }
     }
