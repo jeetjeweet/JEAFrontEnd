@@ -22,10 +22,10 @@
         },
         mounted() {
             axios.get('http://localhost:8080/Chatturbait/resources/Person/getAll', {
-                headers: {
-                    Authorization: 'Bearer ' + localStorage.getItem('token'),
-                    'Content-Type' : 'application/x-www-form-urlencoded'
-                }
+                // headers: {
+                //     Authorization: 'Bearer ' + localStorage.getItem('token'),
+                //     'Content-Type' : 'application/x-www-form-urlencoded'
+                // }
             }).then((response) => {
                     var data = response.data;
                     for(var i = 0; i < data.length; i++){

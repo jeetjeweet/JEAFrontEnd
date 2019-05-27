@@ -44,7 +44,7 @@
         methods:{
             enableAuth: function(){
                 axios.get('http://localhost:8080/Chatturbait/resources/Person/authKey', {
-                    headers: {token: localStorage.getItem('token')}
+                    // headers: {token: localStorage.getItem('token')}
                 }).then((response) => {
                     this.person.authenticationKey = response.data;
                     this.setAuthCode = true;
@@ -55,9 +55,11 @@
                 })
             },
             getUser: function() {
-                axios.get('http://localhost:8080/Chatturbait/resources/Person/getSelf',{
-                    headers: {token: localStorage.getItem('token')}
-                })
+                axios.get('http://localhost:8080/Chatturbait/resources/Person/getSelf',
+                //     {
+                //     headers: {token: localStorage.getItem('token')}
+                // }
+                )
                     .then(
                         (response) => {
                             console.log(response.data);
@@ -72,6 +74,8 @@
             },
             Logout: function() {
                 localStorage.removeItem('token');
+                localStorage.removeItem('name');
+                this.$router.push('/');
             }
         }
     }

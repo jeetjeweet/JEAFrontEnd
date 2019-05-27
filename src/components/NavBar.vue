@@ -29,6 +29,7 @@
         methods: {
             Logout: function () {
                 localStorage.removeItem('token');
+                localStorage.removeItem('name');
                 this.$router.push('/');
             }
         }

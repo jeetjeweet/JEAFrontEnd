@@ -6,7 +6,9 @@ import {router} from './router'
 import axios from 'vue-axios'
 import BootstrapVue from 'bootstrap-vue'
 import NavBar from "@/components/NavBar";
+import interceptor from "@/components/interceptor";
 
+interceptor();
 Vue.config.productionTip = false;
 Vue.use(BootstrapVue);
 Vue.component('NavBar', NavBar);

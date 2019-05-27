@@ -58,8 +58,12 @@
                     this.loginFailed();
                     return
                 }
-
-                localStorage.token = response.data;
+                var splitonce = response.data.split("|");
+                var token = splitonce[0].split(":")[1];
+                var name = splitonce[1].split(":")[1];
+                console.log('token: '+token + 'name: ' + name);
+                localStorage.token = token;
+                localStorage.name = name;
                 this.error = false;
                 this.$router.push('/Home');
                 //this.$router.replace(this.$route.query.redirect || '/Home');
