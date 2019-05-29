@@ -7,6 +7,7 @@ import VueAxios from 'vue-axios';
 import Home from "@/components/Home";
 import Profile from "@/components/Profile";
 import Chat from "@/components/Chat";
+import Register from "@/components/Register";
 
 Vue.use(Router, Axios, VueAxios);
 
@@ -38,6 +39,11 @@ export const router = new Router({
       name: 'chat',
       component: Chat,
       props: true
+    },
+    {
+      path: '/register',
+      name: 'register',
+      component: Register
     }
   ]
 });

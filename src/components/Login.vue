@@ -1,5 +1,5 @@
 <template>
-    <div id="login">
+    <div>
         <h1>Login</h1>
         <input type="text" name="username" v-model="input.username" placeholder="Username" />
         <input type="password" name="password" v-model="input.password" placeholder="Password" />
@@ -22,7 +22,8 @@
                 input: {
                     username: "",
                     password: "",
-                    authCode: ""
+                    authCode: "",
+                    email: ''
                 },
                 error: false
             }

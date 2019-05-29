@@ -6,7 +6,7 @@ export default function setup() {
         // Do something before request is sent
         const token = localStorage.getItem('token');
         if(token){
-            config.headers.token = token;
+            config.headers.Authorization = 'Bearer ' + token;
         }
         return config;
     }, function (error) {

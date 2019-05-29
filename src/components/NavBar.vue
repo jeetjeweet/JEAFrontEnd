@@ -10,6 +10,7 @@
                 <b-navbar-nav class="ml-auto">
                     <b-nav-item-dropdown text="Settings" right>
                         <b-dropdown-item href="#" v-bind:to="'profile'">Profile</b-dropdown-item>
+                        <b-dropdown-item href="#" v-bind:to="'register'">Register</b-dropdown-item>
                         <b-dropdown-item href="#" v-on:click="Logout">Uitloggen</b-dropdown-item>
                     </b-nav-item-dropdown>
                 </b-navbar-nav>

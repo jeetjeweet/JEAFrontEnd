@@ -4,12 +4,14 @@
         <div v-if="person.authenticationKey && !setAuthCode">
             <h3>name: {{person.name}}</h3>
             <h3>password: {{person.password}}</h3>
+            <h3>email: {{person.email}}</h3>
 
             <h3>2 factor authentication is set!</h3>
         </div>
         <div v-else-if="!person.authenticationKey && !setAuthCode">
             <h3>name: </h3> {{person.name}}
             <h3>password: </h3> {{person.password}}
+            <h3>email: </h3> {{person.email}}
             <button v-on:click="this.enableAuth">Enable 2 factor authentication</button>
         </div>
         <div v-else>
@@ -30,6 +32,7 @@
                 person:{
                     name: '',
                     password: '',
+                    email: '',
                     authenticationKey: null
                 },
                 setAuthCode: false
